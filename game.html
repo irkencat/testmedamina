@@ -112,6 +112,9 @@
       const archerContainer = document.querySelector(".img-container.archer");
       const warriorContainer = document.querySelector(".img-container.warrior");
       const dragonHpTxt = document.querySelector(".dragon-health-container .dragon-health-txt")
+      const healerHpTxt = document.getElementById("healer-health-txt")
+      const archerHpTxt = document.getElementById("archer-health-txt")
+      const warriorHpTxt = document.getElementById("warrior-health-txt")
 
       //legge til onclick for hver helt:
       healerContainer.onclick = heroAttackHealer;
@@ -134,19 +137,19 @@
 
       function heroAttackArcher() {
       
-        dragonObject.currentHP -= healer.damage; //samme som dragonObject.currentHP = dragonObject.currentHP - healer.damage;
-        dragonHpTxt.innerHTML = `${dragonObject.currentHP} / ${dragonObject.maxHP} HP`; //funnet html som inneholder dragon hp, setter vi indre html til å være resultatet av hero damage 
+        dragonObject.currentHP -= archer.damage; 
+        dragonHpTxt.innerHTML = `${dragonObject.currentHP} / ${dragonObject.maxHP} HP`; 
 
-        alert(`${healer.name} har gjort ${healer.damage} skade på ${dragonObject.name}`);
+        alert(`${archer.name} har gjort ${archer.damage} skade på ${dragonObject.name}`);
         dragonAttack()
       }
 
       function heroAttackWarrior() {
       
-        dragonObject.currentHP -= healer.damage; //samme som dragonObject.currentHP = dragonObject.currentHP - healer.damage;
-        dragonHpTxt.innerHTML = `${dragonObject.currentHP} / ${dragonObject.maxHP} HP`; //funnet html som inneholder dragon hp, setter vi indre html til å være resultatet av hero damage 
+        dragonObject.currentHP -= warrior.damage; 
+        dragonHpTxt.innerHTML = `${dragonObject.currentHP} / ${dragonObject.maxHP} HP`; 
 
-        alert(`${healer.name} har gjort ${healer.damage} skade på ${dragonObject.name}`);
+        alert(`${warrior.name} har gjort ${warrior.damage} skade på ${dragonObject.name}`);
         dragonAttack()
       }
 
@@ -158,10 +161,14 @@
 
         }
         let hero = heroesArray[randomNumber1];
-        alert(`${dragonObject.name} har angrepet ${hero.name}`);
 
-         hero.currentHP -= hero.damage; 
-         dragonHpTxt.innerHTML = `${dragonObject.currentHP} / ${dragonObject.maxHP} HP`;
+         hero.currentHP -= dragonObject.damage; 
+         
+         healerHpTxt.innerHTML = `${healer.currentHP} / ${healer.maxHP} HP`;
+         archerHpTxt.innerHTML = `${archer.currentHP} / ${archer.maxHP} HP`;
+         warriorHpTxt.innerHTML = `${warrior.currentHP} / ${warrior.maxHP} HP`;
+
+        alert(`${dragonObject.name} har angrepet ${hero.name}`);
         
 
       }
