@@ -108,33 +108,63 @@
       };
 
       //Bilde containere for å få onclick til og fungere for hvert bilde
-
       const healerContainer = document.querySelector(".img-container.healer");
       const archerContainer = document.querySelector(".img-container.archer");
       const warriorContainer = document.querySelector(".img-container.warrior");
+      const dragonHpTxt = document.querySelector(".dragon-health-container .dragon-health-txt")
 
       //legge til onclick for hver helt:
-      healerContainer.onclick = heroAttack;
-      archerContainer.onclick = heroAttack;
-      warriorContainer.onclick = heroAttack;
+      healerContainer.onclick = heroAttackHealer;
+      archerContainer.onclick = heroAttackArcher;
+      warriorContainer.onclick = heroAttackWarrior;
 
       //skape funksjonen for å angripe + legge til alert
-const hero =
-const hero = 
-const hero =
+      const healer = heroesArray[0];
+      const archer = heroesArray[1];
+      const warrior = heroesArray[2];
 
-      heroAttack ("Helena Healer");
-      heroAttack ("Ariana Archer");
-      heroAttack ("Wyona Warrior")
+      function heroAttackHealer() {
+        
+        dragonObject.currentHP -= healer.damage;
+        dragonHpTxt.innerHTML = `${dragonObject.currentHP} / ${dragonObject.maxHP} HP`; 
 
-      function heroAttack(hero) {}
+        alert(`${healer.name} har gjort ${healer.damage} skade på ${dragonObject.name}`);
+        dragonAttack()
+      }
+
+      function heroAttackArcher() {
       
+        dragonObject.currentHP -= healer.damage; //samme som dragonObject.currentHP = dragonObject.currentHP - healer.damage;
+        dragonHpTxt.innerHTML = `${dragonObject.currentHP} / ${dragonObject.maxHP} HP`; //funnet html som inneholder dragon hp, setter vi indre html til å være resultatet av hero damage 
 
-      function heroAttack(hero) {}
-      
+        alert(`${healer.name} har gjort ${healer.damage} skade på ${dragonObject.name}`);
+        dragonAttack()
+      }
 
-      function heroAttack(hero) {}
+      function heroAttackWarrior() {
       
+        dragonObject.currentHP -= healer.damage; //samme som dragonObject.currentHP = dragonObject.currentHP - healer.damage;
+        dragonHpTxt.innerHTML = `${dragonObject.currentHP} / ${dragonObject.maxHP} HP`; //funnet html som inneholder dragon hp, setter vi indre html til å være resultatet av hero damage 
+
+        alert(`${healer.name} har gjort ${healer.damage} skade på ${dragonObject.name}`);
+        dragonAttack()
+      }
+
+      function dragonAttack() {
+        let randomNumber1 = Math.floor (Math.random() * 2.9999)
+
+        while (heroesArray[randomNumber1] .alive == false){
+        randomNumber1 = Math.floor (Math.random() * 2.9999)
+
+        }
+        let hero = heroesArray[randomNumber1];
+        alert(`${dragonObject.name} har angrepet ${hero.name}`);
+
+         hero.currentHP -= hero.damage; 
+         dragonHpTxt.innerHTML = `${dragonObject.currentHP} / ${dragonObject.maxHP} HP`;
+        
+
+      }
     </script>
   </body>
 </html>
